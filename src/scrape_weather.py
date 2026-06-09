@@ -24,11 +24,12 @@ print("Cities found:", len(rows))
 for row in rows:
     cols = row.find_elements(By.TAG_NAME, "td")
     
+
     #checking rows/extracting text
-    if len(cols) >= 3:
+    if len(cols) >= 4:
         city = cols[0].text
         weather = cols[1].text
-        temp = cols[2].text
+        temp = cols[3].text
         
         weather_data.append([city, weather, temp])
 

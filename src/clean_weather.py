@@ -3,6 +3,9 @@ import pandas as pd
 #read the raw_weather data
 df = pd.read_csv("data/raw_weather.csv")
 
+print(df.head())
+print(df.columns)
+
 print("This is before cleaning:")
 print(df.shape)
 
