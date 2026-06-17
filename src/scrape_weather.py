@@ -20,6 +20,7 @@ weather_data = []
 rows = driver.find_elements(By.CSS_SELECTOR, "table.zebra.tb-theme tbody tr")
 print("Cities found:", len(rows))
 
+
 #looping thru each row
 for row in rows:
     cols = row.find_elements(By.TAG_NAME, "td")
@@ -28,15 +29,15 @@ for row in rows:
     #checking rows/extracting text
     if len(cols) >= 4:
         city = cols[0].text
-        weather = cols[1].text
+        time = cols[1].text
         temp = cols[3].text
         
-        weather_data.append([city, weather, temp])
+        weather_data.append([city, time, temp])
 
 #append rows to weather_data
 df = pd.DataFrame(
     weather_data,
-    columns=["City", "Weather_Condition", "Temperature"]
+    columns=["City", "Local_Time", "Temperature"]
 )
 #Importing to CSV
 df.to_csv("data/raw_weather.csv", index = False)

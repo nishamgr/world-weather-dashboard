@@ -3,6 +3,8 @@ import pandas as pd
 #read the raw_weather data
 df = pd.read_csv("data/raw_weather.csv")
 
+df.columns = df.columns.str.strip()
+
 print(df.head())
 print(df.columns)
 
